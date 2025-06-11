@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediAssist - Praćenje zdravlja</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MediAssist</h1>
+            <p>Vaš digitalni pomoćnik za praćenje zdravlja</p>
+        </header>
+
+        <nav>
+            <button id="homeBtn" class="active">Početna</button>
+            <button id="notesBtn">Bilješke</button>
+            <button id="glucoseBtn">Glukoza</button>
+            <button id="contactBtn">Kontakt</button>
+            <button id="loginBtn">Prijava</button>
+        </nav>
+
+        <main>
+            <!-- Početni ekran -->
+            <section id="home" class="content-section active">
+                <h2>Dobrodošli u MediAssist</h2>
+                <p>Aplikacija za praćenje zdravstvenih podataka i terapija</p>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Bilješke</h3>
+                        <p>Zapisujte svoje zdravstvene bilješke i podsjetnike</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Praćenje glukoze</h3>
+                        <p>Pratite svoje vrijednosti glukoze kroz vrijeme</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Kontakt</h3>
+                        <p>Kontaktirajte svoje liječnike i zdravstvene radnike</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bilješke -->
+            <section id="notes" class="content-section">
+                <h2>Moje bilješke</h2>
+                <div class="notes-container">
+                    <textarea id="noteInput" placeholder="Zapišite svoju bilješku ovdje..."></textarea>
+                    <button id="saveNoteBtn">Spremi bilješku</button>
+                    <div id="notesList" class="notes-list"></div>
+                </div>
+            </section>
+
+            <!-- Glukoza -->
+            <section id="glucose" class="content-section">
+                <h2>Praćenje razine glukoze</h2>
+                <div class="glucose-container">
+                    <div class="glucose-input">
+                        <label for="glucoseValue">Vrijednost glukoze (mmol/L):</label>
+                        <input type="number" id="glucoseValue" step="0.1" min="0" max="30">
+                        <label for="glucoseTime">Vrijeme mjerenja:</label>
+                        <input type="datetime-local" id="glucoseTime">
+                        <button id="addGlucoseBtn">Dodaj mjerenje</button>
+                    </div>
+                    <div class="glucose-chart">
+                        <canvas id="glucoseChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kontakt -->
+            <section id="contact" class="content-section">
+                <h2>Kontaktirajte nas</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Zdravstveni tim</h3>
+                        <p><strong>Dr. Ana Anić</strong> - Endokrinolog</p>
+                        <p>Email: ana.anic@bolnica.hr</p>
+                        <p>Telefon: 091 234 5678</p>
+                        <p>Radno vrijeme: Pon-Pet 8:00-16:00</p>
+                    </div>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ime i prezime:</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Poruka:</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Pošalji poruku</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Prijava -->
+            <section id="login" class="content-section">
+                <h2>Prijava u sustav</h2>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Korisničko ime:</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Lozinka:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit">Prijava</button>
+                    <p>Nemate račun? <a href="#" id="registerLink">Registrirajte se</a></p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 MediAssist - Veleučilište u Rijeci</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
